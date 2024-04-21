@@ -8,9 +8,11 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   //getall products
+  const baseUrl = process.env.REACT_APP_API;
+
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/get-product");
+      const { data } = await axios.get(baseUrl + "/api/v1/product/get-product");
       setProducts(data.products);
     } catch (error) {
       console.log(error);

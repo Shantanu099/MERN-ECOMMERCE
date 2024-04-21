@@ -16,12 +16,16 @@ const AdminOrders = () => {
     "delivered",
     "cancel",
   ]);
+
   const [changeStatus, setCHangeStatus] = useState("");
   const [orders, setOrders] = useState([]);
   const [auth, setAuth] = useAuth();
+
+  const baseUrl = process.env.REACT_APP_API;
+
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-orders");
+      const { data } = await axios.get(baseUrl + "/api/v1/auth/all-orders");
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -34,9 +38,12 @@ const AdminOrders = () => {
 
   const handleChange = async (orderId, value) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/order-status/${orderId}`, {
-        status: value,
-      });
+      const { data } = await axios.put(
+        baseUrl + `/api/v1/auth/order-status/${orderId}`,
+        {
+          status: value,
+        }
+      );
       getOrders();
     } catch (error) {
       console.log(error);
@@ -92,7 +99,9 @@ const AdminOrders = () => {
                     <div className="row mb-2 p-3 card flex-row" key={p._id}>
                       <div className="col-md-4">
                         <img
-                          src={`/api/v1/product/product-photo/${p._id}`}
+                          src={
+                            baseUrl + `/api/v1/product/product-photo/${p._id}`
+                          }
                           className="card-img-top"
                           alt={p.name}
                           width="100px"

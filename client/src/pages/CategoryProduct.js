@@ -9,13 +9,15 @@ const CategoryProduct = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
 
+  const baseUrl = process.env.REACT_APP_API;
+
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
   }, [params?.slug]);
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        baseUrl + `/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
       setCategory(data?.category);

@@ -9,6 +9,9 @@ const Search = () => {
   const navigate = useNavigate();
   const [values] = useSearch();
   const [cart, setCart] = useCart();
+
+  const baseUrl = process.env.REACT_APP_API;
+
   return (
     <Layout title={"Search results"}>
       <div className="container">
@@ -23,7 +26,7 @@ const Search = () => {
             {values?.results.map((p) => (
               <div className="card mt-3" style={{ width: "18rem" }} key={p._id}>
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={baseUrl + `/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />

@@ -7,6 +7,10 @@ import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
 
 const Login = () => {
+  const baseUrl = process.env.REACT_APP_API;
+
+  //console.log("baseUrl : ", baseUrl);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useAuth();
@@ -17,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      const res = await axios.post(baseUrl + "/api/v1/auth/login", {
         email,
         password,
       });

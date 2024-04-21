@@ -6,11 +6,13 @@ const SearchInput = () => {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
 
+  const baseUrl = process.env.REACT_APP_API;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `/api/v1/product/search/${values.keyword}`
+        baseUrl + `/api/v1/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");

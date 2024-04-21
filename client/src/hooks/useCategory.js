@@ -5,9 +5,12 @@ export default function useCategory() {
   const [categories, setCategories] = useState([]);
 
   //get cat
+  const baseUrl = process.env.REACT_APP_API;
   const getCategories = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        baseUrl + "/api/v1/category/get-category"
+      );
       setCategories(data?.category);
     } catch (error) {
       console.log(error);

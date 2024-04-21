@@ -1,4 +1,4 @@
-# E-Shop
+# Electronics-Store
 
 This is a full-stack E-Commerce project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It allows users to browse products, add them to their cart, and complete the checkout process.
 
@@ -49,7 +49,7 @@ This is a full-stack E-Commerce project built using the MERN (MongoDB, Express.j
 
 5. **Set up environment variables: Frontend**
 
-   Create a `.env` file in the client directory and add `REACT_APP_BASEURL=http://localhost:8000` i.e url of your server or backend
+   Create a `.env` file in the client directory and add `REACT_APP_BASEURL=http://localhost:8080` i.e url of your server or backend
 
 6. **To run locally**
    - cd client and run `npm start` (for frontend)
@@ -68,7 +68,7 @@ This is a full-stack E-Commerce project built using the MERN (MongoDB, Express.j
 
 3. **Set up environment variables: Frontend**
 
-   Create a `.env` file in the client directory and add `REACT_APP_BASEURL=https://e-shop-backend-akb.vercel.app` i.e url of my backend api
+   Create a `.env` file in the client directory and add `REACT_APP_API=https://mern-ecommerce-7edd.onrender.com` i.e url of my backend api
 
 4. **To run locally**
    - cd client and run `npm start`
